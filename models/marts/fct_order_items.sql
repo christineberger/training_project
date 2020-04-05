@@ -7,10 +7,10 @@ orders as (
 )
 
 select 
-    orders.created_at as order_date,
+    orders.created_date as order_date,
     orders.email,
     orders.customer_id,
-    order_items.id,
+    order_items.order_item_id,
     order_items.order_id,
     order_items.price,
     order_items.quantity,
@@ -18,4 +18,4 @@ select
     order_items.color,
     order_items.product_id
 from order_items
-left join orders on order_items.order_id = orders.id
+left join orders on order_items.order_id = orders.order_id
