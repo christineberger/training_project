@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: dbt_christine
+    tables:
+      - name: customers
+        identifier: customers_upload
+        
+      - name: orders
+        identifier: orders_upload
+        
+      - name: order_items
+        identifier: order_items_upload
