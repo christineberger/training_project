@@ -3,21 +3,21 @@ version: 2
 models:
   - name: stg_customers
     columns:
-      - name: id
+      - name: customer_id
         tests:
           - unique
           - not_null
 
   - name: stg_orders
     columns:
-      - name: id
+      - name: order_id
         tests:
           - unique
           - not_null
 
   - name: stg_order_items
     columns:
-      - name: id
+      - name: order_item_id
         tests:
           - unique
           - not_null
