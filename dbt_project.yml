@@ -29,9 +29,9 @@ models:
   training_project:
     staging:
       schema: staging
-      materialize: view
+      materialized: view
     marts:
-      materialize: table
+      materialized: table
       
 on-run-end:
   - "{{ grant_select_on_schemas(schemas, 'reporter') }}"
