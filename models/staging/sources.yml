@@ -1,7 +1,7 @@
 version: 2
 
 sources:
-  - name: dbt_christine
+  - name: dbt_cberger
     tables:
       - name: customers
         identifier: customers_upload

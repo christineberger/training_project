@@ -1,9 +1,7 @@
-
 name: training_project
+version: '1.0.0'
 
-profile: fishtown-redshift
-
-version: '1.0'
+profile: fishtown_snowflake
 
 require-dbt-version: ">=0.15.0"
 
@@ -21,10 +19,20 @@ clean-targets:
 seeds:
   quote_columns: false
   
+quoting:
+  database: false
+  identifier: false
+  schema: false
+  
 models:
-  bind: false
+  transient: true
   training_project:
     staging:
-      materialize: view
+      schema: staging
+      materialized: view
     marts:
-      materialize: table
+      materialized: table
+      
+on-run-end:
+  - "{{ grant_select_on_schemas(schemas, 'reporter') }}"
+  - "{{ grant_select_on_schemas(schemas, 'transformer') }}"      
